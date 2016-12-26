@@ -4,6 +4,7 @@ body {
 
 }
 .container {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -34,11 +35,11 @@ body {
 .app-body{
  border: 1px solid black;
  min-height: 600px;
- overflow: hidden;
 }
 .col-left{
   width: 20%;
   background: #CFE2F3;
+  overflow: hidden;
 }
 .col-left>ul{
   width: 100%;
@@ -122,5 +123,18 @@ body {
   width: 100%;
   height: 100%;
   background: #CFE2F3;
+}
+#square {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  box-sizing: border-box;
+  background: #CFE2F3;
+  width: 50px;
+  height: 50px;
+  border: 7px double black;
+}
+#square:before {
+  border: 1px double transparent;
 }
 /**/

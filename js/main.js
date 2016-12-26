@@ -11,6 +11,7 @@ function init(){
   nav = getElements('#nav>li');
   data = window.myData;
   contentTemplate = getElement('#contentTemplate').content;
+  
   contentTemplateNodes = [
     contentTemplate.querySelectorAll('.contentTitle')[0],
     contentTemplate.querySelectorAll('.contentImg')[0],
