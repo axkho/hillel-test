@@ -1,42 +1,38 @@
 /*Globals*/
-var NAV;
-var DATA;
-var CONTENT_TEMPLATE;
-var CONTENT_TEMPLATE_NODES = [];
+var nav;
+var data;
+var contentTemplate;
+var contentTemplateNodes = [];
 /**/
 
 document.addEventListener("DOMContentLoaded", function(event) { init(); });
 
 function init(){
-  NAV = getElements('#nav>li');
-  DATA = getJSON();
-  CONTENT_TEMPLATE = getElement('#contentTemplate').content;
-  CONTENT_TEMPLATE_NODES = [
-    CONTENT_TEMPLATE.querySelectorAll('.contentTitle')[0],
-    CONTENT_TEMPLATE.querySelectorAll('.contentImg')[0],
-    CONTENT_TEMPLATE.querySelectorAll('.contentText')[0]
+  nav = getElements('#nav>li');
+  data = window.myData;
+  contentTemplate = getElement('#contentTemplate').content;
+  contentTemplateNodes = [
+    contentTemplate.querySelectorAll('.contentTitle')[0],
+    contentTemplate.querySelectorAll('.contentImg')[0],
+    contentTemplate.querySelectorAll('.contentText')[0]
   ];
 
-  indexNav();
-  addListinersToNav();
+  indexnav();
+  addListinersTonav();
   populateTemplate(0);
   getElement("#nav>li:first-child").className = 'clicked';
 }
 
-function getJSON(){
-  return JSON.parse(JSON.stringify(data));
+function indexnav(){
+  if(nav)
+    for(var i=0; i<nav.length; i++)
+      nav[i].setAttribute("item-index", i);
 }
 
-function indexNav(){
-  if(NAV)
-    for(var i=0; i<NAV.length; i++)
-      NAV[i].setAttribute("item-index", i);
-}
-
-function addListinersToNav() {
-  if(NAV)
-    for(var i = 0; i<NAV.length; i++)
-      NAV[i].addEventListener('click', getContent);
+function addListinersTonav() {
+  if(nav)
+    for(var i = 0; i<nav.length; i++)
+      nav[i].addEventListener('click', getContent);
 }
 
 function getContent(event){
@@ -47,19 +43,19 @@ function getContent(event){
 }
 
 function removeSelection(){
-  for(var i=0; i<NAV.length; i++)
-    NAV[i].className = '';
+  for(var i=0; i<nav.length; i++)
+    nav[i].className = '';
 }
 
 function populateTemplate(contentItem){
   resetTemplate();
-  CONTENT_TEMPLATE_NODES[0].innerHTML = DATA[contentItem].title;
-  CONTENT_TEMPLATE_NODES[1].setAttribute('src', DATA[contentItem].img);
-  CONTENT_TEMPLATE_NODES[1].setAttribute('alt', 'placeholder');
-  CONTENT_TEMPLATE_NODES[2].innerHTML = DATA[contentItem].text;
+  contentTemplateNodes[0].innerHTML = data[contentItem].title;
+  contentTemplateNodes[1].setAttribute('src', data[contentItem].img);
+  contentTemplateNodes[1].setAttribute('alt', 'placeholder');
+  contentTemplateNodes[2].innerHTML = data[contentItem].text;
 
   getElement('#content').appendChild(
-    document.importNode(CONTENT_TEMPLATE, true));
+    document.importNode(contentTemplate, true));
 }
 
 function resetTemplate(){
