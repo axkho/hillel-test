@@ -1,0 +1,126 @@
+body {
+  padding: 5%;
+  font-family: 'Open Sans', sans-serif;
+
+}
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: stretch;
+  margin-bottom: 100px;
+}
+
+/*Header*/
+.header>div {
+  text-align: center;
+  display: block;
+}
+.header>div:first-child{
+  width: 20%;
+}
+.header>div:last-child{
+  width: 80%;
+}
+.header>div:last-child p {
+  font-size: 2em;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  line-height: 82px;
+}
+/**/
+
+/*Body*/
+.app-body{
+ border: 1px solid black;
+ min-height: 600px;
+ overflow: hidden;
+}
+.col-left{
+  width: 20%;
+  background: #CFE2F3;
+}
+.col-left>ul{
+  width: 100%;
+  text-align: center;
+}
+.col-left>ul>li{
+  padding: 20px 0;
+  font-weight: 600;
+  border-right: 1px solid black;
+}
+.col-left>ul>li.clicked {
+  border-right: none;
+  background: #D9D2E9;
+}
+.col-left>ul>li:hover{
+  cursor: pointer;
+  background: #D9D2E9;
+}
+.placeholderBorder{
+  border-right: 1px solid black;
+  height: 100%;
+  min-height: 100px;
+}
+.col-right {
+  width: 80%;
+  background: #D9D2E9;
+}
+#content {
+  padding: 30px;
+  display: block !important;
+}
+.contentTitle{
+  text-align: center;
+  width: 100%;
+  font-size: 1.5em;
+  font-family: 'Roboto';
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.contentImg {
+  float: left;
+  width: 300px;
+  margin-right: 20px;
+}
+.contentText {
+  text-align: justify;
+  line-height: 1.4em;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+/**/
+
+/*Logo figure*/
+#star {
+    margin: auto;
+    background: #CFE2F3;
+    border:1px solid black;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    text-align: center;
+}
+#star:before {
+    content: "";
+    border: 1px solid black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 80px;
+    background: #CFE2F3;
+    -webkit-transform: rotate(135deg);
+       -moz-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+         -o-transform: rotate(135deg);
+}
+#star>p {
+  position: absolute;
+  line-height: 80px;
+  font-weight: 600;
+  width: 100%;
+  height: 100%;
+  background: #CFE2F3;
+}
+/**/
