@@ -1,22 +1,24 @@
 document.addEventListener("DOMContentLoaded", function(event) { init(); });
 
 function init(){
-  indexnav();
+  indexNav();
   addListinersTonav();
   populateTemplate(0);
-  getElement("#nav>li:first-child").className = 'clicked';
+  getElement("#nav>li:first-child").classList.add('clicked');
 }
 
-function indexnav(){
-  if(getNav())
-    for(var i=0; i<getNav().length; i++)
-      getNav()[i].setAttribute("item-index", i);
+function indexNav(){
+  var nav = getNav();
+  if(nav)
+    for(var i=0; i<nav.length; i++)
+      nav[i].setAttribute("item-index", i);
 }
 
 function addListinersTonav() {
-  if(getNav())
-    for(var i = 0; i<getNav().length; i++)
-      getNav()[i].addEventListener('click', getContent);
+  var nav = getNav();
+  if(nav)
+    for(var i = 0; i<nav.length; i++)
+      nav[i].addEventListener('click', getContent);
 }
 
 function getContent(event){
@@ -32,7 +34,7 @@ function removeSelection(){
 }
 
 function populateTemplate(contentItem){
-  resetTemplate();
+  resetContent();
 
   var template = getTemplate();
   var title = template.querySelectorAll('.contentTitle')[0];
@@ -48,7 +50,7 @@ function populateTemplate(contentItem){
     document.importNode(template, true));
 }
 
-function resetTemplate(){
+function resetContent(){
   var content = getElement('#content');
   while (content.hasChildNodes()) {
     content.removeChild(content.lastChild);
