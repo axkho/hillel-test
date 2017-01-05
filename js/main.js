@@ -21,11 +21,10 @@ function addListinersTonav() {
       nav[i].addEventListener('click', getContent);
 }
 
-function getContent(event){
-  var item = event.target;
+function getContent(){
   removeSelection();
-  item.classList.add('clicked');
-  populateTemplate(item.getAttribute('item-index'));
+  this.classList.add('clicked');
+  populateTemplate(this.getAttribute('item-index'));
 }
 
 function removeSelection(){
